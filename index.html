@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertion Sort Visualizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 min-h-screen font-sans text-slate-800">
+
+    <div class="max-w-5xl mx-auto p-6">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-slate-900">Insertion Sort Visualizer</h1>
+            <p class="text-slate-500 mt-2">Watch the sorted and unsorted sections unfold step-by-step</p>
+        </header>
+
+        <div class="bg-white p-6 rounded-xl shadow-md mb-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <label class="block text-sm font-semibold mb-2">Input Array (comma separated):</label>
+                <div class="flex gap-2">
+                    <input type="text" id="arrayInput" value="7, 4, 6, 9, 3" class="flex-1 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <button onclick="loadCustomArray()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition">Load</button>
+                    <button onclick="generateRandomArray()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2 rounded-lg font-medium text-sm transition">Random</button>
+                </div>
+            </div>
+            <div class="flex items-end gap-3">
+                <button id="stepBtn" onclick="nextStep()" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white py-2 rounded-lg font-medium transition disabled:opacity-50">
+                    Next Step
+                </button>
+                <button onclick="resetVisualizer()" class="flex-1 bg-rose-100 hover:bg-rose-200 text-rose-700 py-2 rounded-lg font-medium transition">
+                    Reset
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 mb-8 text-center">
+            <div class="bg-white p-3 rounded-lg shadow-sm border border-slate-100">
+                <span class="block text-xs font-semibold uppercase text-slate-400">Outer Loop (i)</span>
+                <span id="varI" class="text-xl font-bold text-indigo-600">-</span>
+            </div>
+            <div class="bg-white p-3 rounded-lg shadow-sm border border-slate-100">
+                <span class="block text-xs font-semibold uppercase text-slate-400">Inner Pointer (j)</span>
+                <span id="varJ" class="text-xl font-bold text-amber-600">-</span>
+            </div>
+            <div class="bg-white p-3 rounded-lg shadow-sm border border-slate-100">
+                <span class="block text-xs font-semibold uppercase text-slate-400">Current Target</span>
+                <span id="varTarget" class="text-xl font-bold text-rose-600">-</span>
+            </div>
+        </div>
+
+        <div class="bg-white p-10 rounded-xl shadow-md min-h-[250px] flex items-center justify-center relative overflow-x-auto">
+            <div id="cardsContainer" class="flex items-center gap-6 relative py-8">
+                </div>
+        </div>
+
+        <div class="mt-6 bg-slate-900 text-slate-200 p-4 rounded-xl font-mono text-sm shadow-inner">
+            <div class="text-emerald-400 mb-1">// Execution Log:</div>
+            <div id="logPanel">Click "Next Step" to begin tracking the sort execution.</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

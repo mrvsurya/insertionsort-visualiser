@@ -1,0 +1,14 @@
+/* Smoothly animates card transformations and shifting movements */
+.card-transition {
+    transition: all 0.4s ease-in-out;
+}
+
+/* Custom styles for sorting visual elements */
+.card-base {
+    width: 4rem; /* 16 w-unit equivalent */
+    height: 6rem; /* 24 h-unit equivalent */
+}
+
+.divider-line {
+    height: 8rem;
+}
